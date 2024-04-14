@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.f4.main.mapper.chatMapper"> 
+
+<insert id="insertChatData" parameterType="map">
+    insert into chatting values(#{roomNum},#{sender},#{message},TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), #{connection})
+</insert>
+
+<select id="getChatData" parameterType="map" resultType="ChattingDTO">
+	select * from chatting where roomNum = #{roomNum}
+</select>
+
+
+<select id="getChatList" parameterType="String" resultType="ChatMemberDTO">
+	SELECT DISTINCT receiver, roomNum FROM chatmember WHERE sender = #{sender}
+</select>
+
+
+<select id="getChat" parameterType="String" resultType="String">
+	SELECT message FROM chatting
+	WHERE roomNum = #{roomNum}
+	ORDER BY sendTime DESC
+	FETCH FIRST 1 ROW ONLY
+</select>
+
+
+<select id="getmessage" parameterType="map" resultType="String">
+    SELECT message FROM chatsender
+	WHERE sender = #{sender} AND roomNum = #{roomNum}
+	ORDER BY sendTime DESC
+	FETCH FIRST 1 ROW ONLY
+</select>
+
+
+<select id="getRoomNum" parameterType="map" resultType="String">
+    select DISTINCT roomnum from chatmember	where sender = #{sender} and receiver = #{receiver}
+</select>
+
+
+<select id="getMaxRoomNum" resultType="String">
+    SELECT DISTINCT MAX(roomNum) AS MaxRoomNum FROM chatmember
+</select>
+
+
+<insert id="setRoomNum1" parameterType="map">
+	insert into chatmember values(#{roomNum}, #{sender}, #{receiver})
+</insert>	
+
+
+<insert id="setRoomNum2" parameterType="map">
+	insert into chatmember values(#{roomNum}, #{receiver}, #{sender})
+</insert>	
+
+
+<update id="update_Connection" parameterType="map">
+	update connection set connecting = #{connecting} where sender = #{sender} and roomNum = #{roomNum}
+</update>
+
+<update id="Connection" parameterType="map">
+	update chatting set connection = ' ' where sender = #{sender} and roomNum = #{roomNum} and connection = '1'
+</update>
+
+<insert id="setConnection" parameterType="map">
+	insert into connection values(#{roomNum}, #{sender}, #{connecting})
+</insert>
+
+<select id="getConnection" parameterType="map" resultType="String">
+	select connecting from connection where sender = #{sender} and roomNum = #{roomNum}
+</select>
+
+</mapper>

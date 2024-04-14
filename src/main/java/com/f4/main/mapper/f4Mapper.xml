@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.f4.main.mapper.f4Mapper"> 
+
+   <select id="checkId" parameterType="String" resultType="MemberDTO"> 
+      select * from jtm where id = #{id}
+   </select>
+   
+   <insert id="insertMember" parameterType="MemberDTO">
+      insert into jtm values(jtm_seq.nextval,#{id}, #{pw}, #{name},#{email1},#{email2},#{tel1},#{tel2},#{tel3},0,#{confirmpassword},sysdate,0,0,0,#{postcode},#{address},#{detailAddress})
+   </insert>
+   
+   <select id="checkIdAndPassword" resultType="int" parameterType="map">
+        select count(*) from jtm where id = #{id} and pw = #{pw}
+    </select>
+    
+    <select id="getMember" resultType="MemberDTO" parameterType="String">
+        select * from jtm where id = #{id}
+    </select>
+    
+    <update id="updateMember" parameterType="Object">
+       update jtm set bnr=1 where id=#{loginId}
+    </update>
+    
+    <select id="checkBnr" resultType="MemberDTO" parameterType="String"> 
+      select * from jtm where bnr=1 and id=#{id} 
+   </select>
+   
+   <select id="listJtm" resultType="MemberDTO"> 
+      select * from jtm 
+   </select>
+   
+   <select id="searchId" resultType="String" parameterType="java.util.Map">
+      select id from jtm where name=#{name} and email1=#{email1} and email2=#{email2} 
+   </select>
+   
+   <select id="searchPw" resultType="String" parameterType="java.util.Map">
+      select pw from jtm where name=#{name} and email1=#{email1} and email2=#{email2} and id=#{id}
+   </select>
+   
+   <update id="update" parameterType="memberDTO">
+       update jtm set pw=#{pw},name=#{name},tel1=#{tel1},tel2=#{tel2},tel3=#{tel3},postcode=#{postcode},address=#{address},detailAddress=#{detailAddress} where no = #{no}
+    </update>
+    
+    <delete id="deleteMember" parameterType="Object">
+      delete from jtm where id=#{id}
+   </delete>
+   
+   <update id="updateAdmin" parameterType="MemberDTO">
+       update jtm set pw=#{pw} where id=#{id}
+    </update>
+    
+    <delete id="deleteAdmin" parameterType="int">
+      delete from jtm where no=#{no}
+   </delete>
+   
+   <delete id="deleteKakao" parameterType="String">
+      delete from jtm where name=#{name}
+   </delete>
+   
+   <update id="updateKakao" parameterType="String">
+         update jtm set kind=1 where id=#{id}
+   </update>
+   
+   <update id="updateNaver" parameterType="String">
+         update jtm set kind=2 where id=#{id}
+   </update>
+   
+   
+   <update id="updatememberkind" parameterType="String">
+         update jtm set memberkind=1 where id=#{id}
+   </update>
+   
+   <select id="YclistJtm" resultType="MemberDTO">
+      select * from jtm where memberkind=0
+   </select>
+   <select id="BalistJtm" resultType="MemberDTO">
+      select * from jtm where memberkind=1
+   </select>
+   
+    <update id="updateprice" parameterType="map">
+         update jtm set price=#{price} where id=#{id}
+   </update>
+   
+   <select id="PricelistJtm" resultType="MemberDTO" parameterType="String">
+      select * from jtm where price=#{price}
+   </select>
+</mapper>

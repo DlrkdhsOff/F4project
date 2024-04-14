@@ -1,0 +1,62 @@
+/* 카카오  start*/
+.memberbtn.kakao {
+    position: relative;
+    width: 960px;
+    margin: 0 auto 23px;
+}
+.memberbtn {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.memberbtn.kakao input {
+    border: 0;
+    background-color: #FFE900;
+    color: black;
+}
+
+/* 카카오  end*/
+
+/* 로그인 라인 start*/
+.box_member .form_login {
+    width: 410px;
+}
+.box_member .form_login {
+    float: left;
+    width: 420px;
+}
+.box_member .form_box {
+    padding-bottom: 60px;
+}
+#cnt .cntbody {
+    width: 400px;
+    margin: 0 auto;
+    padding-bottom: 230px;
+}
+
+.memberbtn input {
+    width: 100%;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3d8f2d;
+    border: 1px solid var(--season_color_11);
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.box_member .form_login form:after {
+    content: '';
+    position: absolute;
+    right: -70px;
+    top: 61px;
+    height: 84%;
+    width: 1px;
+    background: #f3f3f3;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* 로그인 라인 end*/

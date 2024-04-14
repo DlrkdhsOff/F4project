@@ -1,0 +1,563 @@
+@charset "UTF-8";
+
+.subpage {
+    margin: 74px 0 0 0;
+}
+
+.subpage .contents {
+    margin: 0 auto;
+    width: 1400px
+}
+
+.subpage .contents.full {
+    width: auto
+}
+
+.subpage .contents > h2 {
+    padding: 50px 0 45px 0;
+    min-height: 60px;
+    font-family: 'Noto-B';
+    font-size: 40px;
+    color: #ff7d9e;
+    text-align: center
+}
+
+.subpage .contents > h2.brand {
+    color: #2c3e8a;
+}
+
+.subpage .contents > h2.beauty {
+    color: #9f3ff8;
+}
+
+
+
+.subpage .contents > h2.result {
+    font-family: 'Noto-M';
+    font-size: 40px;
+    color: #000
+}
+
+.subpage .contents > h2.result strong {
+    position: relative;
+    margin: 0 5px 0 0;
+    padding: 0 15px;
+    color: #ff7d9e
+}
+
+.subpage .contents > h2.result strong:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 16px;
+    background: url('../img/common/icon/result_icon1.png') no-repeat 0 0
+}
+
+.subpage .contents > h2.result strong:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 8px;
+    height: 16px;
+    background: url('../img/common/icon/result_icon1.png') no-repeat 100% 0
+}
+
+.subpage .contents h3.black {
+    margin: 0 0 67px 0;
+    font-family: 'Noto-B';
+    font-size: 30px;
+    color: #000;
+    text-align: center
+}
+
+
+/** MEMBER - JOIN **/
+.subpage .member .join {
+    margin: 0 auto;
+    width: 570px
+}
+
+.subpage .member .join > .agree {
+    margin: 0 0 15px 0;
+    padding: 0 0 0 15px
+}
+
+.subpage .member .join .use-txt {
+    border: solid 1px #e6e6e6
+}
+
+.subpage .member .join .use-txt .agree {
+    padding: 12px 0 15px 14px;
+    border-bottom: solid 1px #e6e6e6;
+    background: #f9f9f9
+}
+
+.subpage .member .join .use-txt + .use-txt {
+    margin: 20px 0 30px 0
+}
+
+.subpage .member .join .use-txt .txt {
+    overflow: auto;
+    padding: 14px;
+    height: 117px;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.3
+}
+
+.subpage .member .join .form-box {
+    margin: 0 0 46px 0;
+    padding: 55px 0;
+    border-top: solid 2px #39373a;
+    border-bottom: solid 2px #39373a;
+}
+
+.subpage .member .join .form-box > li {
+    position: relative;
+    padding: 0 0 0 178px;
+    min-height: 65px
+}
+
+.subpage .member .join.medium .form-box > li {
+    min-height: 46px
+}
+
+.subpage .member .join .form-box > li > .tit {
+    position: absolute;
+    left: 45px;
+    top: 13px;
+    font-family: 'Noto-B';
+    font-size: 15px;
+    color: #000
+}
+
+.subpage .member .join .form-box > li + li {
+    margin-top: 12px
+}
+
+.subpage .member .join .form-box > li .form {
+    position: relative
+}
+
+.subpage .member .join .form-box > li .form .info {
+    position: absolute;
+    left: 2px;
+    top: 11px;
+    font-size: 12px;
+    color: #000
+}
+
+.subpage .member .join .form-box > li .form.insert .info {
+    display: none
+}
+
+.subpage .member .join .form-box > li .form > .txt {
+    line-height: 34px
+}
+
+.subpage .member .join .form-box > li .form > .txt, .subpage .member .join .form-box > li .form input {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 0 2px;
+    width: 250px;
+    height: 35px;
+    font-size: 12px;
+    color: #000;
+    border: none;
+    border-bottom: solid 1px #9d9d9d;
+    background: transparent
+}
+
+.subpage .member .join .form-box > li .form select {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 0 2px;
+    width: 250px;
+    height: 35px;
+    font-size: 13px;
+    color: #000;
+    border: none;
+    border-bottom: solid 1px #9d9d9d;
+}
+
+.subpage .member .join .form-box > li .form + .form {
+    margin-top: 30px
+}
+
+.subpage .member .join .form-box > li .form textarea {
+    display: block;
+    padding: 10px;
+    width: 750px;
+    height: 122px;
+    border: solid 1px #e8e8e8;
+    box-sizing: border-box
+}
+
+.subpage .member .join .form-box > li .good {
+    margin: 14px 0 0 0;
+    font-size: 14px;
+    color: #37afa2
+}
+
+.subpage .member .join .form-box > li .alert {
+    margin: 14px 0 0 0;
+    font-size: 14px;
+    color: #ff7d9e
+}
+
+.subpage .member .join .form-box > li .form-agree {
+    margin: 0 0 10px 0;
+    padding: 8px 0 0 0
+}
+
+.subpage .member .join .form-box > li .form-agree .cs-form + .cs-form {
+    margin: 0 0 0 28px
+}
+
+.subpage .member .join .form-box > li .caution {
+    font-size: 12px;
+    color: #5e5e5e
+}
+
+.subpage .member .join .complete {
+    margin: 0 -100px;
+    text-align: center
+}
+
+.subpage .member .join .complete .tit {
+    margin: 0 0 36px 0;
+    padding: 160px 0 99px 0;
+    font-family: 'Noto-L';
+    font-size: 45px;
+    color: #000;
+    border-bottom: solid 1px #d9d9d9;
+    background: url('../img/sub/member/complete_ico.png') no-repeat 50% 0
+}
+
+.subpage .member .join .complete .tit span {
+    font-family: 'Noto-R';
+    color: #f73e3e
+}
+
+.subpage .member .join .complete .txt {
+    margin: 0 0 58px 0
+}
+
+.subpage .member .join .complete .txt p {
+    display: inline-block;
+    padding: 0 0 0 90px;
+    min-height: 72px;
+    font-size: 24px;
+    color: #000;
+    text-align: left;
+    line-height: 1.45;
+    background: url('../img/sub/member/app.png') no-repeat 0 0
+}
+
+.subpage .member .join .complete .txt p span {
+    font-family: 'Noto-B';
+    color: #ff749a
+}
+
+.subpage .member .join .complete .coupon {
+    margin: 0 0 100px 0;
+    font-size: 0
+}
+
+.subpage .member .join .complete .coupon p {
+    display: inline-block;
+    margin: 0 4px
+}
+
+/** MEMBER - LOGIN **/
+.subpage .member .login {
+    margin: 0 auto;
+    width: 590px
+}
+
+.subpage .member .login .tabmenu {
+    overflow: hidden;
+    margin: 0 0 35px 0
+}
+
+.subpage .member .login .tabmenu > * {
+    float: left;
+    width: 50%;
+    height: 66px;
+    line-height: 66px;
+    font-family: 'Noto-M';
+    font-size: 18px;
+    color: #363232;
+    text-align: center;
+    border: solid 1px #b3b3b3;
+    border-bottom: solid 5px #ff7d9e;
+    box-sizing: border-box
+}
+
+.subpage .member .login .tabmenu .on {
+    position: relative;
+    margin: 0 -1px;
+    color: #fff;
+    border-color: #ff7d9e;
+    background: #ff7d9e
+}
+
+.subpage .member .login .form-box {
+    margin: 0 0 30px 0
+}
+
+.subpage .member .login .form-box .inform {
+    margin: 0 0 28px 0
+}
+
+.subpage .member .login .form-box .inform > li {
+    position: relative;
+    padding: 0 0 0 0;
+    border-bottom: solid 1px #cecece
+}
+
+.subpage .member .login .form-box .inform > li label {
+    position: absolute;
+    left: 12px;
+    top: 17px;
+    font-size: 16px;
+    color: #585858
+}
+
+.subpage .member .login .form-box .inform > li input {
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+    height: 50px;
+    font-family: 'Noto-M';
+    font-size: 15px;
+    border: 0
+}
+
+.subpage .member .login .form-box .inform > .insert label {
+    display: none
+}
+
+.subpage .member .login .form-box .inform > li + li {
+    margin: 10px 0 0 0
+}
+
+.subpage .member .login .form-box .inform > li span {
+    display: block
+}
+
+.subpage .member .login .form-box .inform > li .col2 {
+    height: 50px
+}
+
+.subpage .member .login .form-box .inform > li .col2 li {
+    float: left;
+    width: 256px;
+    background: blue
+}
+
+.subpage .member .login .form-box .inform > li .col2 li:first-child {
+    position: relative;
+    margin: 0 52px 0 0;
+    width: 182px
+}
+
+.subpage .member .login .form-box .inform > li .col2 li:first-child:before {
+    content: '';
+    position: absolute;
+    right: -52px;
+    bottom: -1px;
+    width: 52px;
+    height: 1px;
+    background: #fff
+}
+
+.subpage .member .login .form-box .inform > li .col2 li:first-child:after {
+    content: '';
+    position: absolute;
+    right: -35px;
+    top: 25px;
+    width: 16px;
+    height: 2px;
+    background: #cecece
+}
+
+.subpage .member .login .form-box .option {
+    margin: 0 0 35px 0;
+    text-align: right;
+    font-size: 0
+}
+
+.subpage .member .login .form-box .option li {
+    display: inline-block;
+    margin: 0 0 0 24px
+}
+
+.subpage .member .login .form-box .option li input {
+    position: absolute;
+    left: -9999px
+}
+
+.subpage .member .login .form-box .option li label {
+    display: inline-block;
+    padding: 0 0 0 28px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 16px;
+    color: #585858;
+    background: url('../img/common/btn/form_check_small.png') no-repeat 0 -18px
+}
+
+.subpage .member .login .form-box .option li input:checked + label {
+    background-position: 0 0
+}
+
+.subpage .member .login .link-box {
+    margin: 0 0 30px 0;
+    font-size: 0;
+    text-align: center
+}
+
+.subpage .member .login .link-box li {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    color: #585858
+}
+
+.subpage .member .login .link-box li + li {
+    margin: 0 0 0 46px
+}
+
+.subpage .member .login .link-box li + li:before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 1px;
+    width: 1px;
+    height: 14px;
+    background: #b3b3b3
+}
+
+.subpage .member .login .login-type {
+    overflow: hidden;
+    margin: 0 0 85px 0;
+    padding: 24px 0 0 0;
+    border-top: solid 1px #cecece
+}
+
+.subpage .member .login .login-type > * {
+    float: right;
+    width: 288px
+}
+
+.subpage .member .login .login-type > *:first-child {
+    float: left
+}
+
+.subpage .member .login .login-type button {
+    width: 100%
+}
+
+.subpage .member .login .login-type button span {
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    color: #020202;
+    border: solid 1px #cecece
+}
+
+.subpage .member .login .login-type button span:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin: 0 15px 0 0;
+    vertical-align: middle;
+    width: 25px;
+    height: 23px;
+    background: url('../img/common/icon/login.png') no-repeat 0 0
+}
+
+.subpage .member .login .login-type button:hover span {
+    color: #ff7d9e;
+    border-color: #ff7d9e
+}
+
+.subpage .member .login .login-type .kakao span:before {
+    width: 29px;
+    height: 27px;
+    background-position: 0 100%
+}
+
+.subpage .member .login .form-box + .login-type {
+    margin-top: 69px
+}
+
+.subpage .member .join .join-type {
+    overflow: hidden;
+    margin: 0 0 85px 0;
+    padding: 24px 0 0 0;
+}
+
+.subpage .member .join .join-type > * {
+    width: 180px;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+/*.subpage .member .join .join-type > *:first-child{float:left}*/
+.subpage .member .join .join-type button {
+    width: 100%
+}
+
+.subpage .member .join .join-type button span {
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    color: #020202;
+    border: solid 1px #cecece
+}
+
+.subpage .member .join .join-type button span:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin: 0 15px 0 0;
+    vertical-align: middle;
+    width: 25px;
+    height: 23px;
+    background: url('../img/common/icon/login.png') no-repeat 0 0
+}
+
+.subpage .member .join .join-type button:hover span {
+    color: #ff7d9e;
+    border-color: #ff7d9e
+}
+
+.subpage .member .join .join-type .kakao span:before {
+    width: 29px;
+    height: 27px;
+    background-position: 0 100%
+}
+
+.subpage .member .join .form-box + .join-type {
+    margin-top: 69px
+}
+
+.subpage .member .join .join-type .google span:before {
+    width: 29px;
+    height: 27px;
+    left: -13px;
+    background: url('https://img.sonyunara.com/2019/asset/pc/img/common/icon/icon_google.png') no-repeat 0 0
+}
+
+.subpage .member .join .join-type > *:nth-child(3) {
+    margin-right: 0;
+}

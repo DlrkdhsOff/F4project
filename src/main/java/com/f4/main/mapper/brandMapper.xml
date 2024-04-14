@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.f4.main.mapper.brandMapper">
+
+    <insert id="insertBrand" parameterType="BrandDTO">
+      insert into brand values(brand_seq.nextval,
+      #{storeName},#{tablename},#{su},#{name},#{tel1},#{tel2},#{tel3},
+      #{address},#{area},#{storeAreaSales},#{averageSales},
+      #{squareInteriorCost},#{interiorCost},#{depositAmount},
+      #{education},#{otherCosts},#{franchiseAmount},#{total},#{bimage},0,#{id})
+     </insert>
+
+   <select id="getCount_brand" resultType="Integer">
+      select count(*) from brand
+   </select>
+   
+      <select id="getCount_brand1" resultType="Integer" parameterType="String">
+      select count(*) from brand where tablename = #{tablename}
+   </select>
+   
+
+   <select id="listBrand" resultType="BrandDTO"
+      parameterType="java.util.Map">
+       <![CDATA[
+       SELECT * FROM (
+           SELECT rownum AS rnum, b.* FROM (
+               SELECT * FROM brand ORDER BY bnum DESC
+           ) b
+           WHERE rownum <= #{end}
+       ) WHERE rnum >= #{start}
+       ]]>
+   </select>
+
+
+   <select id="getListByTablename" resultType="BrandDTO"
+      parameterType="String">
+      SELECT * FROM brand WHERE tablename = #{tablename}
+   </select>
+
+   <select id="listBrandOrderBySu" resultType="BrandDTO"
+      parameterType="java.util.Map">
+        <![CDATA[
+        SELECT * FROM (
+            SELECT rownum AS rnum, b.* FROM (
+                SELECT * FROM brand ORDER BY su DESC, bnum
+            ) b
+            WHERE rownum <= #{end}
+        ) WHERE rnum >= #{start}
+        ]]>
+   </select>
+
+    <select id="listBrandOrderByWon" resultType="BrandDTO" parameterType="java.util.Map">
+        <![CDATA[
+        SELECT * FROM (
+            SELECT rownum AS rnum, b.* FROM (
+                SELECT * FROM brand ORDER BY TOTAL DESC, bnum
+            ) b
+            WHERE rownum <= #{end}
+        ) WHERE rnum >= #{start}
+        ]]>
+    </select>
+    
+   <select id="listBrandOrderByWon1" resultType="BrandDTO" parameterType="java.util.Map">
+       <![CDATA[
+       SELECT * FROM (
+           SELECT rownum AS rnum, b.* FROM (
+               SELECT * FROM brand WHERE tableName = #{tablename} ORDER BY TOTAL DESC, bnum
+           ) b
+           WHERE rownum <= #{end}
+       ) WHERE rnum >= #{start}
+       ]]>
+   </select>
+
+   <select id="getBrand" resultType="BrandDTO" parameterType="int">
+      select * from brand where bnum = #{bnum}
+   </select>
+
+   <update id="updateBrand" parameterType="BrandDTO">
+       update brand set
+       storeName=#{storeName},
+       tablename=#{tablename},
+       su=#{su},
+       name=#{name},
+       tel1=#{tel1},
+       tel2=#{tel2},
+       tel3=#{tel3},
+       address=#{address},
+       area=#{area},
+       storeAreaSales=#{storeAreaSales},
+       averageSales=#{averageSales},
+       squareInteriorCost=#{squareInteriorCost},
+       interiorCost=#{interiorCost},
+       depositAmount=#{depositAmount},
+       education=#{education},
+       otherCosts=#{otherCosts},
+       franchiseAmount=#{franchiseAmount},
+       total=#{total},
+       bimage=#{bimage}
+       where bnum=#{bnum}
+   </update>
+
+   <delete id="deleteBrand" parameterType="int">
+      delete from brand where bnum=#{bnum}
+   </delete>
+
+   <insert id="addToWishlist" parameterType="java.util.Map">
+          INSERT INTO wishlist (id, bnum) VALUES (#{id}, #{bnum})
+   </insert>
+
+   <delete id="removeFromWishlist" parameterType="java.util.Map">
+          DELETE FROM wishlist WHERE id = #{id} AND bnum = #{bnum}
+   </delete>
+   
+    <select id="getWishlist" resultType="BrandDTO" parameterType="String">
+        SELECT b.bnum, b.storeName, b.tablename, b.name, b.tel1, b.tel2, b.tel3, b.address, b.area, b.storeAreaSales, b.averageSales, b.squareInteriorCost, b.interiorCost, b.depositAmount, b.education, b.otherCosts, b.franchiseAmount, b.total, b.bimage, b.wishlist, b.id FROM brand b INNER JOIN wishlist w ON b.bnum = w.bnum WHERE w.id = #{id}
+    </select>
+
+   <select id="getWishListId" resultType="WishlistDTO"
+      parameterType="int">
+      select * from wishlist where bnum=#{bnum}
+   </select>
+
+
+   <select id="isInWishlist" resultType="int"
+      parameterType="java.util.Map">
+      SELECT COUNT(*) FROM wishlist WHERE id = #{id} AND bnum = #{bnum}
+   </select>
+   
+   <select id="getBrandList" resultType="BrandDTO" parameterType="java.util.Map">
+      <![CDATA[
+      SELECT * FROM (
+          SELECT rownum AS rnum, b.* FROM (
+              SELECT * FROM brand WHERE tablename = #{tablename} ORDER BY bnum DESC
+          ) b
+          WHERE rownum <= #{end}
+      ) WHERE rnum >= #{start}
+      ]]>
+   </select>
+   
+
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.f4.main.mapper.reboardMapper">
+ 
+    <select id="listReboard" resultType="reboardDTO" parameterType="java.util.Map">
+       SELECT * FROM (SELECT rownum rn, A.* FROM (SELECT * FROM reboard WHERE id=#{id} and kind=#{kind} ORDER BY re_step ASC) A) WHERE rn BETWEEN #{start} AND #{end}
+   </select>
+
+   <select id="ad_listReboard" resultType="reboardDTO" parameterType="Map">
+       select * from  (select rownum rn, A.* from (select * from reboard order by re_step asc)A) where rn between #{start} and #{end}
+     </select>
+
+   <select id="getRecount" resultType="Integer" parameterType="Object">
+      select count(*) from reboard where id = #{id}
+   </select>
+   
+   <select id="ad_getRecount" resultType="Integer">
+      select count(*) from reboard
+   </select>
+   
+   <select id="getReboard" resultType="reboardDTO" parameterType="int">
+      select * from reboard where num=#{num}
+   </select>
+
+   <update id="plusReadcountt" parameterType="int">
+      update reboard set readcount = readcount + 1 where num = #{num}
+   </update>
+   
+   <insert id="insertReboard" parameterType="reboardDTO">
+      insert into reboard values(reboard_seq.nextval,#{writer},#{email},#{subject},#{passwd},sysdate,0,#{content},#{ip},#{re_group},#{re_step},#{re_level},#{id},' ',#{kind}, #{answer})
+   </insert>
+   
+   <update id="ad_insertReboard" parameterType="reboardDTO">
+      update reboard set ad_answer=#{ad_answer} where num=#{num}
+   </update>
+   
+   <update id="updateNewBoard" parameterType="reboardDTO">
+       update reboard set re_step = re_step + 1
+    </update>
+    
+    <update id="updateReBoard" parameterType="reboardDTO">
+       update reboard set re_step = re_step + 1 where re_step = #{re_step}
+    </update>
+   
+   <select id="replyListBoard" resultType="reboardDTO">
+         select * from reboard where re_group = #{re_group} and re_step > 0
+   </select>
+   
+   <select id="findReboard" resultType="ReboardDTO" parameterType="java.util.Map">
+       select * from reboard where ${search} = #{searchString}
+    </select>
+    
+    <update id="ad_contentReboard" parameterType="Map">
+        update reboard set ad_answer=#{ad_answer}, answer=#{answer} where num=#{num}
+    </update>
+    
+    <select id="findBoard" resultType="ReboardDTO" parameterType="Map">
+       select * from reboard where ${search} = #{searchString} and id=#{id} order by num desc
+    </select>
+    
+    <select id="ad_findBoard" resultType="ReboardDTO" parameterType="Map">
+       select * from reboard where ${search}=#{searchString} order by num desc
+    </select>
+    
+    <update id="updateKakaoReboard" parameterType="String">
+         update reboard set kind=1 where id=#{id}
+   </update>
+   
+   <update id="updateNaverReboard" parameterType="String">
+         update reboard set kind=2 where id=#{id}
+   </update>
+      
+   
+ </mapper>
+ 

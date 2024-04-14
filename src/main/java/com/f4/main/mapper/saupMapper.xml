@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.f4.main.mapper.saupMapper"> 
+   
+   <insert id="insertSaup" parameterType="Map">
+      insert into saup values(#{id}, #{name}, #{tel}, #{place}, #{store}, #{memo}, #{accept})
+   </insert>
+   
+   <insert id="insertsaup" parameterType="SaupDTO">
+      insert into saup values(#{id}, #{name}, #{tel}, #{place}, #{store}, #{memo}, #{accept})
+   </insert>
+   
+    <select id="getSaupDetail" resultType="SaupDTO" parameterType="String">
+        select * from saup where id = #{id}
+    </select>
+    
+   <update id="getSaupUpdate" parameterType="Map">
+       UPDATE saup SET accept=#{accept} WHERE name=#{name}
+   </update>
+   
+   <update id="getSaupUpdateAll" parameterType="Map">
+       UPDATE saup SET place=#{place}, store=#{store}, memo=#{memo}, accept=#{accept} WHERE name=#{name}
+   </update>
+    
+    <select id="getSaupList" resultType="SaupDTO">
+       select * from saup where accept = '0'
+   </select>
+    
+    <select id="getSaupAccept" resultType="String" parameterType="String">
+        select accept from saup where id = #{id}
+    </select>
+       
+</mapper>

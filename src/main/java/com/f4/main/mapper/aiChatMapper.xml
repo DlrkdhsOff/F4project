@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.f4.main.mapper.aiChatMapper">
+
+	
+	<select id="getBrandData" parameterType="map" resultType="BrandDTO">
+   		SELECT *
+		FROM BRAND
+		<where>
+			<if test = "address != null">
+				AND address LIKE '%' || #{address} || '%'
+			</if>
+			<if test = "categorie != null">
+				AND tablename LIKE '%' || #{categorie} || '%'
+			</if>
+			<if test = "storeName != null">
+				AND storeName LIKE '%' || #{storeName} || '%'
+			</if>
+			<if test = "total != null">
+				AND total BETWEEN #{total} - 50000 AND #{total} + 50000
+			</if>
+		</where>
+		ORDER BY total ASC
+		FETCH FIRST 5 ROWS ONLY
+	</select>
+	
+	
+	
+	<select id="getBrandData_AllNull"  resultType="BrandDTO">
+   		SELECT * FROM BRAND
+    	ORDER BY total ASC
+    	FETCH FIRST 5 ROWS ONLY
+	</select>
+	
+	
+	<select id="getBrandData_All_Total" resultType="Integer">
+   		SELECT AVG(total) FROM BRAND
+	</select>
+	
+	
+	<select id="getBrandData_Total" parameterType="map" resultType="Integer">
+   		SELECT AVG(total) FROM BRAND
+		<where>
+			<if test = "address != null">
+				AND address LIKE '%' || #{address} || '%'
+			</if>
+			<if test = "categorie != null">
+				AND tablename LIKE '%' || #{categorie} || '%'
+			</if>
+			<if test = "storeName != null">
+				AND storeName LIKE '%' || #{storeName} || '%'
+			</if>
+		</where>
+	</select>
+
+
+</mapper>

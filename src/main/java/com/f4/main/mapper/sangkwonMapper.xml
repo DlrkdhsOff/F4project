@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.f4.main.mapper.sangkwonMapper"> 
+
+	
+	<select id="search" parameterType="map" resultType="SangkwonDTO">
+	    SELECT * FROM sangkwon
+	    WHERE LOWER(storeAddress) LIKE '%' || LOWER(#{storeAddress}) || '%' 
+	    AND LOWER(storeName) LIKE '%' || LOWER(#{storeName}) || '%'
+	    AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+	</select>
+	
+	<select id="search1" parameterType="map" resultType="SangkwonDTO">
+	    SELECT * FROM sangkwon
+	    WHERE LOWER(storeName) LIKE '%' || LOWER(#{storeName}) || '%'
+	    AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+	</select>
+	
+	<select id="count" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM sangkwon 
+		WHERE storeName LIKE '%' || #{storeName} || '%'	
+		AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'   
+	</select>
+	
+	<select id="countByValueT" parameterType="map" resultType="int"> 
+		SELECT COUNT(*) FROM sangkwon 
+		WHERE storeAddress LIKE '%' || #{storeAddress} || '%'
+	    AND storeName LIKE '%' || #{storeName} || '%'
+	    AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+	</select>
+
+	
+   <select id="Search" resultType="SangkwonDTO" parameterType="Map">
+       <foreach collection="tableNames" item="tableName" separator=" UNION ">
+           SELECT * FROM sangkwon
+           WHERE LOWER(StoreName) LIKE LOWER('%' || #{searchString} || '%') 
+           OR LOWER(StoreAddress) LIKE LOWER('%' || #{searchString} || '%')
+           AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+       </foreach>
+   </select>
+
+    
+    <select id="selectAllFromTable" parameterType="string" resultType="SangkwonDTO">
+        SELECT * FROM sangkwon
+    </select>
+    
+    <select id="selectAll" parameterType="string" resultType="SangkwonDTO">
+        SELECT * FROM sangkwon
+    	WHERE  LOWER(storeName) LIKE LOWER('%' || #{storeName} || '%')
+    	AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+    </select>
+    
+    
+    <select id="SelectRegion" parameterType="map" resultType="SangkwonDTO">
+   		SELECT * FROM sangkwon
+    	WHERE  LOWER(StoreAddress) LIKE LOWER('%' || #{Region} || '%')
+    	AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%'
+	</select>
+	
+	<select id="SearchAllRegion" resultType="SangkwonDTO" parameterType="Map">
+	    <foreach collection="tableNames" item="tableName" separator=" UNION ">
+	        SELECT * FROM sangkwon
+	        WHERE LOWER(StoreAddress) LIKE LOWER('%' || #{searchString} || '%')      
+	        AND LOWER(categories) LIKE '%' || LOWER(#{categories}) || '%' 
+	    </foreach>
+	</select>
+	
+	
+</mapper>
